@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "AllOrders";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var order in @Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    <span>Имя: фывфывфывфывфыв </span>
+                    <span class="col-md-offset-1"> Email: @order.UserEmail </span>
+                    <span class="col-md-offset-1"> Сумма: фывфывфывфывфыв </span>
+                    <span class="col-md-offset-1"> Колличество товаров: @order.AmountOfProducts </span>
+                </a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+                <main class="mainProduct">
+                    <table class="table productTable">
+                       
+                      
+                       
+                        <tbody>
+                            <tr>
+                                <td>Номер дома</td>
+                                <td>Корпус</td>
+                                <td>Номер квартиры</td>
+                                <td>Улица</td>
+                                <td>Доставка с</td>
+                                <td>Доставка до</td>
+                            </tr>
+                        @*@foreach (var prod in @Model)
+                        {*@
+                        <tr>
+                            <td>@order.NumberOfHome</td>
+                            <td>@order.Housing</td>
+                            <td>@order.NumberOfFlat</td>
+                            <td>@order.Street</td>
+                            <td>@order.From</td>
+                            <td>@order.To</td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </main>
+            </div>
+        </div>
+    </div>
+}
+   
+

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="mainMenu">
+    <div class="row">
+
+        <div class="col-lg-3 col-lg-offset-9 searchMenu">
+            <div class="input-group">
+                <input type="text" class="form-control" id="SearchProducts" placeholder="Название..">
+                <span class="input-group-btn">
+                    <button class="btn btn-secondary searchButton" type="button"><span>Найти</span></button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (var prod in @Model)
+        {
+            <div class="col-lg-3 product">
+                <ul class="ulMenu">
+                    <li class="liName">@prod.Name</li>
+                    <li><img class="img-responsive" src=@Url.Content(@prod.Absolutepath)></li>
+                    <li class="descryption">@prod.Description</li>
+                    <li><span class="priceText">Цена: </span><span class="price">@prod.Price</span></li>
+                    <li><span class="btn btn-default">@Ajax.ActionLink("Добавить в корзину", "AddToCart", new {ide = @prod.Id.ToString(), Controller = "Cart"}, new AjaxOptions {UpdateTargetId = @prod.Id.ToString()}, new {id = @prod.Id.ToString()}) <img src="~/Content/Images/shopping_basket.png"/></span></li>
+                </ul>
+            </div>
+        }
+    </div>
+</main>
+
+@section Footer {
+
+}
+@*@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script type="text/javascript">
+$(function () {
+    var page = 0;
+    var _inCallback = false;
+    function loadItems() {
+        if (page > -1 && !_inCallback) {
+            _inCallback = true;
+            page++;
+            $.ajax({
+                type: 'GET',
+                url: '/Home/Menu/' + page,
+                success: function (data, textstatus) {
+                    if (data != '') {
+                        $("#scrolList").append(data);
+                    }
+                    else {
+                        page = -1;
+                    }
+                    _inCallback = false;
+                }
+            });
+        }
+    }
+    // обработка события скроллинга
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+         
+            loadItems();
+        }
+    });
+})
+    </script>
+
+}*@
+

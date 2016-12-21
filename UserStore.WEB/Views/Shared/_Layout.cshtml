@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+   
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+   
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <div class="container">
+        <header class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            <span class="title">EXPRESS</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <span class="title">Pizza</span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div row>
+                        <img src=@Url.Content("~/Content/Images/clock.png")>
+                        <span class="tel-title">Часы работы </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            <span class="red code">ПН-ЧТ</span>
+                            <span class="time">10</span>
+                            <span class="minutes">00</span>
+                            <span class="time"> -18</span>
+                            <span class="minutes">00</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            <span class="red code">ПТ-ВС</span>
+                            <span class="time">10</span>
+                            <span class="minutes">00</span>
+                            <span class="time"> -23</span>&nbsp;<span class="minutes">00</span>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+                <div class="col-md-2">
+                    <ul>
+                        <li><img src=@Url.Content("~/Content/Images/vel.png")><span class="tel">544633</span></li>
+                        <li><img src=@Url.Content("~/Content/Images/mts.png")> <span class="tel">+375123123</span></li>
+                        <li><img src="@Url.Content("~/Content/Images/tel.png")"> <span class="tel">+375123123</span></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-2">
+                            <span class="title">Всегда</span>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <span class="title">горячая</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                       
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Главная", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Меню", "Menu", "Home")</li>
+                            <li>@Html.ActionLink("Отзывы", "Comments", "FeedBack")</li>
+                           
+                            @if (User.IsInRole("admin"))
+                            { 
+                                    <li>@Html.ActionLink("Добавить новый товар","UploadProduct","Product")</li>
+                                    <li>@Html.ActionLink("Редактировать товар", "Products", "Product")</li>
+                                        <li>@Html.ActionLink("Просмотреть заказы", "Orders", "Order")</li>
+                                  
+
+                            }
+                        </ul>
+                      
+                       
+                        <ul class="nav navbar-nav navbar-right">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li>@Html.ActionLink("Выйти", "Logout", new { Controller = "Account", @class = "glyphicon glyphicon-user" })</li>
+                                <li>@Html.ActionLink("Корзина", "AddedProducts", new { Controller = "Cart", @class = "glyphicon glyphicon-shopping-cart" })</li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Войти", "Login", new { Controller = "Account", @class = "glyphicon glyphicon-user" })</li>
+                                <li>@Html.ActionLink("Зарегистрироваться", "Register", new { Controller = "Account", @class = "glyphicon glyphicon-user" })</li>
+                            }
+
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        @RenderBody()
+
+        @Scripts.Render("~/bundles/scripts")
+        @Scripts.Render("~/scripts/cart.js")
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.skitter-large').skitter();
+
+            });
+
+        </script>
+     
+        <script type="text/javascript">
+    $(function () {
+
+        var autocompleteUrl = '@Url.Action("AutoComplete","Product")';
+        $("#SearchProducts").autocomplete({
+            source: autocompleteUrl,
+            minLength: 2,
+            select: function (event, ui) {
+                var loc = '@Url.Action("FoundProductByName","Product")';
+                location.replace(loc + "/" + ui.item.id);
+            }
+        });
+    });
+        </script>
+
+        <footer>
+            <div class="container" id="footer">
+                <div class="row">
+                    <div class="col-md-4">вывы</div>
+                    <div class="col-md-4">
+                        Пицца на дом
+                        В современных реалиях время является одним из важнейших богатств, поэтому заказ пиццы на дом в Минске – оптимальное решение для ужина, отдыха на природе, вечеринки и в любое другое время.
+                    </div>
+                    <div class="col-md-4">Интернет — магазин зарегистрирован в Торговом реестре Республики Беларусь 25 марта 2015 г. Регистрационный номер в Торговом реестре Республики Беларусь: 228153 ООО "Новита"&nbsp;<div></div><div></div></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+@RenderSection("Footer",required:false)
+@RenderSection("scripts", required: false)
+</body>
+</html>

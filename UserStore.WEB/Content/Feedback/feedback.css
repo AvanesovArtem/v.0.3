@@ -1,0 +1,48 @@
+.articleFeedback li{
+    color:black;
+    word-wrap: break-word;
+}
+
+.articleFeedback{
+    border-radius: 10px;
+    padding-right: 30px;
+    padding-left: 0 !important;
+    background-color: rgb(221,221,221);
+    margin-bottom: 15px;
+    margin-left: 5px;
+  
+}
+.no-margin{
+    margin-right: !important;
+}
+.feedbackBtn{
+    background-color:rgb(42,42,42);
+    color: white;
+    float: right!important;
+}
+.message{
+    background-color: rgb(221,221,221);
+    height: 50px;
+    right: 17px;
+    bottom: 20px;
+    top:1px;
+    left: 11px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    
+}
+.wremya{
+    float: right;
+}
+.messageRow{
+    margin-right: 0!important;
+}
+.inputMessage{
+    padding-left: 0!important;
+}
+.mainFeedback{
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-image: url(paper_2.png);
+}

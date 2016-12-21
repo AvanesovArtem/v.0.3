@@ -1,0 +1,68 @@
+.menuSearch .searchButton{
+    background-color: rgb(48,48,48);
+      top:-20px;
+    right: 16px;
+ 
+}
+.menuSearch .searchButton > span{
+    color:white;
+}
+.menuSearch input[type="text"]{
+    color:red;
+    top:-20px;
+ 
+}
+.searchMenu{
+    margin-bottom: 15px;
+}
+
+.liName {
+    font-family: 'Ravi Prakash', cursive!important;
+     font-size: 25px!important;
+}
+.priceText{
+    font-size: 20px;
+    font-family: 'Ravi Prakash', cursive;
+     
+  
+}
+.price{
+     font-size: 27px;
+     font-family: 'Ravi Prakash', cursive;
+      
+}
+.product{
+
+    word-wrap: break-word;
+    text-align: center;
+    
+}
+.descryption{
+       font-size: 18px;
+       color:rgb(43,43,43);
+}
+.product ul:hover{
+    border: 3px solid rgb(255,216,60);
+}
+
+.ulMenu {
+    background-image: url('../Images/bacckk.jpg');
+   
+    border-radius: 15px;
+    border: 2px solid rgb(255,128,105);
+    position: relative;
+    bottom: 10px;
+    padding: 10px;
+    opacity: 0.9;
+}
+.mainMenu{
+    border-top-left-radius: 20px;
+     border-top-right-radius: 20px;
+    margin: 0;
+    padding: 0;
+   
+    position: relative;
+    opacity: 0.9;
+    padding-top: 20px;
+    margin-top: -20px;
+}

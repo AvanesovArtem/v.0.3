@@ -1,0 +1,39 @@
+﻿        @using System.Collections
+
+        @{
+            ViewBag.Title = "Index";
+            Layout = "~/Views/Shared/_Layout.cshtml";
+        }
+
+<style>
+    
+    #footer {
+        
+        max-width: 1110px !important;
+        
+    }
+</style>
+<main class="container">
+    <div id="page">
+
+        <div id="content">
+            <div class="skitter-large-box">
+                <div class="skitter skitter-large with-thumbs">
+                    <ul>
+                        <li><a href="#cube"><img src=@Url.Content("~/Content/Images/banner.jpg") class="cubeHide" /></a><div class="label_text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#see-more" class="btn btn-small btn-yellow">See more</a></p></div></li>
+                        <li><a href="#cube"><img src=@Url.Content("~/Content/Images/skidki.jpg") class="cubeHide" /></a><div class="label_text"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#see-more" class="btn btn-small btn-yellow">See more</a></p></div></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+
+@section Footer {
+
+ }
+
+

@@ -1,0 +1,51 @@
+﻿@model UserStore.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Регистрация";
+}
+<main class="mainLogin">
+
+    <div class="wrapper">
+
+        @using (Html.BeginForm("Register", "Account"))
+        {
+            <form>
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "text", PlaceHolder = "Введите свой Email", @class = "name" } })
+
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+
+
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { type = "password", PlaceHolder = "Введите пароль", @class = "password" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+
+                @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { type = "password", PlaceHolder = "Подтвердите пароль", @class = "password" } })
+
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { type = "text", PlaceHolder = "Введите свой имя", @class = "name" } })
+
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <div class="g-recaptcha" data-sitekey="6LdMwA0UAAAAAB9b25X03wBOtT7Zx737gVYU5f4A"></div>
+
+                <input type="submit" value="Регистрация" class="btn btn-default" />
+            </form>
+
+        }
+    </div>
+
+</main>

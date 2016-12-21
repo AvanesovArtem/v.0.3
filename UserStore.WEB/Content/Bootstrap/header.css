@@ -1,0 +1,45 @@
+li{
+      list-style-type: none;
+        margin-bottom: 10px;
+}
+.tel{
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: aliceblue;
+}
+body{
+    background-image:  url(../Images/bg.jpg);
+}
+.time{
+    color: aliceblue;
+    font-size: 18px;
+}
+.tel-title{
+    color: aliceblue;
+    font-size: 22px;
+}
+.minutes{
+    color: aliceblue;
+    font-size: 8px;
+}
+.code{
+    font-size: 15px;
+    color: rgb(244,255,35);
+}
+.title{
+     color: aliceblue;
+    font-size: 40px;
+    font-family: 'Ravi Prakash', cursive;
+    color:rgb(244,255,35);
+}
+header{
+    position: relative;
+    max-width: 100%;
+    
+}
+ .navbarLi:hover{
+   
+ 
+   background-color: red;
+}
+  

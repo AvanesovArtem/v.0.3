@@ -1,0 +1,61 @@
+﻿@model PizzaShopThreeLayer.Models.UploadProductViewModel
+
+@{
+    ViewBag.Title = "UploadProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="divMain">
+    @*@Html.ValidationSummary()*@
+    @{Html.EnableClientValidation();}
+    @{Html.EnableUnobtrusiveJavaScript();}
+    @using (Html.BeginForm("UploadProduct", "Product", FormMethod.Post, new { enctype = "multipart/form-data", id = "FormUpload" }))
+    {
+        <main class="mainEdit">
+            <div class="container">
+                <div class="wrapper">
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <form class="form">
+                        @Html.EditorFor(model => model.Name, new {htmlAttributes = new {type = "text", PlaceHolder = "Наименование товара", @class = "nameEdit"}})
+                        @Html.ValidationMessageFor(model => model.Name, "", new {@class = "text-danger"})
+
+                        @Html.EditorFor(model => model.Description, new {htmlAttributes = new {type = "text", PlaceHolder = "Описание товара", @class = "descryptionEdit"}})
+                        @Html.ValidationMessageFor(model => model.Description, "", new {@class = "text-danger"})
+
+                        @Html.EditorFor(model => model.Price, new {htmlAttributes = new {type = "number", PlaceHolder = "Цена товара", @class = "priceEdit"}})
+                        @Html.ValidationMessageFor(model => model.Price, "", new {@class = "text-danger"})
+
+                        <input type="file" class="fileEdit" name="image" value="Выберите файл">
+
+                        <input type="submit" class="fileSubmitEdit" value="Добавить товар">
+                    </form>
+                </div>
+            </div>
+        </main>
+    }
+ 
+
+</div>
+
+
+@section Footer{
+
+}
+@*<div class="wrapper">
+    @using (Html.BeginForm())
+    {
+        <form>
+          
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { type = "text", PlaceHolder = "Введите свое имя", @class = "name" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { type = "password", PlaceHolder = "Введите пароль", @class = "password" } })
+
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            <input type="submit" class="formSubmit" value="Войти">
+        </form>
+    }
+</div>*@

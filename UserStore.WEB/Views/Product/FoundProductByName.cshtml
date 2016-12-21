@@ -1,0 +1,44 @@
+﻿@model UserStore.Models.ProductViewModel
+
+@{
+    ViewBag.Title = "FoundProductByName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<main class="mainFeedback">
+    <div class="row">
+        <div class="col-md-3 no-margin">
+            <article class="articleFeedback">
+                <ul class="">
+                    <li class=""><div class="" style="color: rgb(51, 51, 51);"><b class="">&nbsp; Express Pizza - это &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;здоровая и &nbsp;разнообразная &nbsp; &nbsp; &nbsp; еда. &nbsp;Наше &nbsp;меню готово &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;порадовать &nbsp;Вас пиццей, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;суши, пирогами, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;бургерами и &nbsp;десертами. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Мы используем &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; только самые свежие &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ингредиенты. Мы уверены &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;в качестве своих блюд. &nbsp;&nbsp;</b></div><div class="" style="color: rgb(51, 51, 51);"><b class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;А умелые руки наших &nbsp; &nbsp; &nbsp; &nbsp;высококвалифицированных &nbsp; &nbsp; &nbsp; поваров приготовят Ваш &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;заказ с любовью. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Кроме того, новейшее &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; итальянское оборудование &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;позволяет использовать &nbsp; &nbsp; технологию максимального &nbsp; &nbsp; &nbsp; &nbsp;сохранения витаминов за &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; счёт быстрой &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;термообработки.</b></div><div style="color: rgb(51, 51, 51);"><b class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Express Pizza - это &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;здоровое &nbsp; питание! &nbsp; &nbsp; &nbsp;&nbsp;</b></div></li>
+
+                </ul>
+
+            </article>
+
+        </div>
+        <div class="col-md-8 foundProduct">
+            <div class="row">
+                <div style="min-height:430px" class="row alert alert-warning">
+                    <div class="col-md-4"> <img src=@Url.Content(@Model.Absolutepath) class="img-responsive"></div>
+                    <div class="col-md-8">
+                        <h3>@Model.Name</h3>
+                        <h4>Состав:</h4>
+                        <h4>@Model.Description</h4>
+                        <h4>Цена: @Model.Price</h4>
+                    </div>
+
+                    <br>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>
+
+@section Footer {
+
+}

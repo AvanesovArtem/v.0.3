@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="mainFeedback">
+    <div class="row">
+        <div class="col-md-3 no-margin">
+            <article class="articleFeedback"><div class=""><b class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Express Pizza - это &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;здоровая и &nbsp;разнообразная &nbsp; &nbsp; &nbsp; еда. &nbsp;Наше &nbsp;меню готово &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;порадовать &nbsp;Вас пиццей, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;суши, пирогами, &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;бургерами и &nbsp;десертами. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Мы используем &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; только самые свежие &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ингредиенты. Мы уверены &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;в качестве своих блюд. &nbsp;&nbsp;</b></div><div class=""><b class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;А умелые руки наших &nbsp; &nbsp; &nbsp; &nbsp;высококвалифицированных &nbsp; &nbsp; &nbsp; поваров приготовят Ваш &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;заказ с любовью. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Кроме того, новейшее &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; итальянское оборудование &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;позволяет использовать &nbsp; &nbsp; технологию максимального &nbsp; &nbsp; &nbsp; &nbsp;сохранения витаминов за &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; счёт быстрой &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;термообработки.</b></div><div><b class="">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Express Pizza - это &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;здоровое &nbsp; питание! &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></div></article>
+
+        </div>
+        <div class="col-md-9">
+            <div id="cameMessage"></div>
+            @foreach (var mes in @Model)
+            {
+                <div class="row messageRow" id=@mes.Id.ToString()>
+                    <div class="alert alert-warning">
+                        <span class="userName"><span>@mes.UserName</span></span>
+                        <span class="wremya">@mes.DateTime</span>
+                        <br>
+                        <br>
+                        <span class="message">@mes.Message</span>
+                        @if (User.IsInRole("admin"))
+                        {
+                            @Ajax.ActionLink("Удалить", "Remove", new { ide = @mes.Id.ToString(), Controller = "Feedback" }, new AjaxOptions { UpdateTargetId = @mes.Id.ToString() }, new { @class = "wremya" })
+                        }
+                    </div>
+                </div>
+            }
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            using (Ajax.BeginForm("AddComment", new AjaxOptions { UpdateTargetId = "cameMessage", InsertionMode = InsertionMode.InsertAfter }))
+                            {
+                               @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <textarea class="form-control" rows="3" id="comment" name="Message" required="required"></textarea>
+                              
+                                <br />
+                                <button type="submit" class="btn btn-info btn-block">Комментировать</button>
+                            }
+                        
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Войдите,чтобы оставить отзыв","Login",new {Controller ="Account"},new {@class="btn btn-info btn-block"})
+                        }
+                      
+
+                    </div>
+                
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Footer {
+
+}
+
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+
+
+
+

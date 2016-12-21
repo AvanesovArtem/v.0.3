@@ -1,0 +1,38 @@
+
+.mainProduct{
+    padding-left: 110px!important;
+     padding-right: 110px!important;
+     background-image: url(../Images/paper_2.png);
+    border-radius: 10px;
+    padding-top: 25px!important;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.cross{
+    color: red;
+    font-size: 25px;
+}
+
+.mainProduct table td{
+    font-size: 20px;
+}
+
+.mainProduct table th{
+    font-size: 25px;
+}
+.strongProduct{
+    font-size: 20px;
+}
+
+.mainProduct .img-responsive{
+    max-width: 80px!important;
+    margin-top: -10px!important;
+}
+.mainProduct td{
+    text-align: center;
+   padding-top: 10px!important;
+   
+}
+.cartNumber{
+    max-width: 50px;
+}

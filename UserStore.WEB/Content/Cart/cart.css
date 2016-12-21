@@ -1,0 +1,47 @@
+
+.mainCart{
+    padding-left: 110px!important;
+     padding-right: 110px!important;
+   background-image: url(../Images/paper_2.png);
+    border-radius: 10px;
+    padding-top: 25px!important;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+
+.mainCart table{
+    border-radius: 10px;
+}
+.mainCart table th{
+    font-size: 25px;
+}
+.strongCart{
+    font-size: 20px;
+}
+.mainCart .img-responsive{
+    max-width: 80px!important;
+    margin-top: -10px!important;
+    margin-left: 40px;
+}
+
+.mainCart td{
+    text-align: center;
+   padding-top: 20px!important;
+     padding-bottom: 10px!important;
+       font-size: 20px;
+    
+   
+}
+.cartNumber{
+    max-width: 50px;
+}
+tr{
+    border-radius: 50px!important;
+    border-color: red!important;
+    
+
+   
+}
+
+
